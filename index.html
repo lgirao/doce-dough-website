@@ -1,0 +1,1106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doce Dough — Party & Dessert Platters in Broward County, FL</title>
+<meta name="description" content="Doce Dough is a Broward County home bakery making chocolate chip cookies, banana muffins, and traditional Brazilian brigadeiros for parties, offices, and holidays. Pickup & delivery available.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --cream:#FFF6E8;
+    --cream-2:#FFFBF3;
+    --cocoa:#3A2318;
+    --cocoa-soft:#6E5142;
+    --guava:#E15B5F;
+    --guava-dark:#B23E42;
+    --palm:#3F6B4E;
+    --gold:#D9A441;
+    --card:#FFFFFF;
+
+    --line: rgba(58,35,24,0.12);
+    --shadow: 0 18px 40px -22px rgba(58,35,24,0.35);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 10px;
+
+    --font-display: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --maxw: 1180px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--cocoa);
+    background:var(--cream);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img,svg{ display:block; max-width:100%; }
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    color:var(--cocoa);
+    margin:0;
+    line-height:1.12;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+
+  p{ margin:0; }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  section{ padding:104px 0; }
+
+  @media (max-width:760px){
+    section{ padding:72px 0; }
+    .wrap{ padding:0 20px; }
+  }
+
+  .eyebrow-free-title{ max-width:640px; }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:1rem;
+    padding:15px 30px;
+    border-radius:999px;
+    border:2px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  }
+  .btn:focus-visible{ outline:3px solid var(--cocoa); outline-offset:3px; }
+
+  .btn-primary{
+    background:var(--guava);
+    color:var(--cream-2);
+    box-shadow:0 14px 28px -14px rgba(178,62,66,0.65);
+  }
+  .btn-primary:hover{ background:var(--guava-dark); transform:translateY(-1px); }
+
+  .btn-quiet{
+    background:transparent;
+    color:var(--cocoa);
+    border-color:var(--line);
+  }
+  .btn-quiet:hover{ border-color:var(--cocoa-soft); }
+
+  .link-inline{
+    font-weight:700;
+    color:var(--cocoa);
+    text-underline-offset:4px;
+    text-decoration-color:var(--gold);
+    text-decoration-thickness:2px;
+  }
+
+  /* ---------- Nav ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,246,232,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    text-decoration:none;
+    color:var(--cocoa);
+  }
+  .brand-mark{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  .brand-sub{
+    font-size:0.72rem;
+    letter-spacing:0.03em;
+    color:var(--cocoa-soft);
+    display:none;
+  }
+  @media (min-width:560px){ .brand-sub{ display:inline; } }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.98rem;
+    color:var(--cocoa-soft);
+    padding:6px 2px;
+    border-bottom:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--cocoa); border-color:var(--gold); }
+
+  /* Higher specificity than ".nav-links a" so the CTA keeps its own
+     button colors/padding instead of inheriting the plain nav-link style. */
+  .nav-links a.nav-cta,
+  .nav-links a.nav-cta:hover{
+    color:var(--cream-2);
+    padding:12px 26px;
+    border-bottom:none;
+    white-space:nowrap;
+  }
+  .nav-links a.nav-cta:hover{ color:var(--cream-2); }
+
+  .nav-cta{ display:none; }
+  @media (min-width:860px){ .nav-cta{ display:inline-flex; } }
+
+  .nav-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:var(--cream-2);
+    cursor:pointer;
+  }
+  .nav-toggle span,
+  .nav-toggle::before,
+  .nav-toggle::after{
+    content:"";
+    display:block;
+    width:20px;
+    height:2px;
+    background:var(--cocoa);
+    position:relative;
+  }
+  .nav-toggle{ flex-direction:column; gap:5px; }
+
+  @media (min-width:860px){
+    .nav-toggle{ display:none; }
+  }
+  .nav-links{ }
+  @media (max-width:859px){
+    .nav-links{
+      position:fixed;
+      inset:70px 20px auto 20px;
+      background:var(--cream-2);
+      border:1px solid var(--line);
+      border-radius:var(--radius-md);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:20px 22px;
+      box-shadow:var(--shadow);
+      gap:16px;
+      transform-origin:top;
+      opacity:0;
+      transform:translateY(-8px) scale(0.98);
+      pointer-events:none;
+      transition:opacity .18s ease, transform .18s ease;
+    }
+    .nav-links.is-open{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      pointer-events:auto;
+    }
+    .nav-links .nav-cta{ display:inline-flex; margin-top:4px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:76px 0 90px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:920px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero{ padding-top:48px; }
+  }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.6rem);
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:1.15rem;
+    color:var(--cocoa-soft);
+    max-width:52ch;
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    align-items:center;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+  .hero-service{
+    margin-top:38px;
+    font-size:0.95rem;
+    color:var(--cocoa-soft);
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    max-width:48ch;
+  }
+  .hero-service strong{ color:var(--cocoa); }
+
+  .hero-art{
+    position:relative;
+  }
+  .hero-art .plate{
+    position:relative;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    aspect-ratio:4/5;
+    box-shadow:var(--shadow);
+    border:6px solid var(--card);
+  }
+  .hero-art .plate img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-credit{
+    position:absolute;
+    right:14px;
+    bottom:14px;
+    font-size:0.72rem;
+    color:var(--cream-2);
+    background:rgba(58,35,24,0.55);
+    padding:4px 10px;
+    border-radius:999px;
+  }
+  .photo-credit a{ color:inherit; text-decoration:none; }
+
+  /* ---------- Section headings ---------- */
+  .section-head{
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.2vw, 2.5rem);
+  }
+  .section-head p{
+    margin-top:14px;
+    font-size:1.08rem;
+    color:var(--cocoa-soft);
+  }
+  .section-alt{ background:var(--cream-2); }
+
+  /* ---------- About ---------- */
+  .about .wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media (max-width:860px){
+    .about .wrap{ grid-template-columns:1fr; gap:32px; }
+  }
+  .about-copy p + p{ margin-top:16px; }
+  .about-copy{ font-size:1.05rem; color:var(--cocoa-soft); max-width:56ch; }
+  .about-stats{
+    display:grid;
+    gap:22px;
+  }
+  .about-stat{
+    border-left:3px solid var(--gold);
+    padding-left:18px;
+  }
+  .about-stat b{
+    display:block;
+    font-family:var(--font-display);
+    font-size:1.6rem;
+    color:var(--cocoa);
+  }
+  .about-stat span{
+    font-size:0.94rem;
+    color:var(--cocoa-soft);
+  }
+
+  /* ---------- Menu ---------- */
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  @media (max-width:960px){
+    .menu-grid{ grid-template-columns:1fr; }
+  }
+
+  .platter-card{
+    background:var(--card);
+    border-radius:var(--radius-lg);
+    padding:34px 30px 32px;
+    box-shadow:var(--shadow);
+    border-top:6px solid var(--accent, var(--gold));
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    height:100%;
+  }
+  .platter-icon{
+    width:62px;
+    height:62px;
+  }
+  .platter-card h3{
+    font-size:1.4rem;
+  }
+  .platter-tag{
+    display:inline-block;
+    align-self:flex-start;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--accent-dark, var(--guava-dark));
+    background:color-mix(in srgb, var(--accent, var(--gold)) 16%, white);
+    padding:5px 12px;
+    border-radius:999px;
+  }
+  .platter-card p{
+    color:var(--cocoa-soft);
+    font-size:1rem;
+  }
+  .platter-meta{
+    margin-top:auto;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:0.92rem;
+    color:var(--cocoa-soft);
+  }
+  .platter-meta strong{ color:var(--cocoa); }
+
+  .menu-note{
+    margin-top:40px;
+    text-align:center;
+    font-size:1rem;
+    color:var(--cocoa-soft);
+  }
+
+  /* ---------- How it works ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    counter-reset:step;
+  }
+  @media (max-width:860px){
+    .steps{ grid-template-columns:1fr; }
+  }
+  .step{ position:relative; padding-left:56px; font-weight: 700;}
+  .step::before{
+    counter-increment:step;
+    content:counter(step);
+    position:absolute;
+    left:0; top:0;
+    width:40px; height:40px;
+    border-radius:50%;
+    background:var(--cocoa);
+    color:var(--cream-2);
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .step h3{ font-size:1.15rem; margin-bottom:8px; }
+  .step p{ color:var(--cocoa-soft); }
+
+  .fulfillment-options{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:700px){
+    .fulfillment-options{ grid-template-columns:1fr; }
+  }
+  .fulfillment-card{
+    background:var(--card);
+    border-radius:var(--radius-md);
+    padding:26px 26px;
+    border:1px solid var(--line);
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .fulfillment-card svg{ flex:none; width:34px; height:34px; }
+  .fulfillment-card h3{ font-size:1.1rem; margin-bottom:6px; }
+  .fulfillment-card p{ color:var(--cocoa-soft); font-size:0.97rem; }
+
+  /* ---------- Contact ---------- */
+  .contact .wrap{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:920px){
+    .contact .wrap{ grid-template-columns:1fr; }
+  }
+  .contact-info h2{ font-size:clamp(1.9rem, 3vw, 2.4rem); }
+  .contact-info > p{ margin-top:14px; color:var(--cocoa-soft); font-size:1.05rem; max-width:44ch; }
+  .contact-list{
+    margin-top:30px;
+    display:grid;
+    gap:18px;
+  }
+  .contact-list dt{
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--cocoa-soft);
+  }
+  .contact-list dd{
+    margin:2px 0 0;
+    font-size:1.08rem;
+  }
+
+  .form-card{
+    background:var(--card);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow);
+    padding:38px;
+  }
+  @media (max-width:560px){
+    .form-card{ padding:26px 22px; }
+  }
+
+  .field-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  @media (max-width:600px){
+    .field-row{ grid-template-columns:1fr; }
+  }
+
+  .field{ margin-bottom:20px; }
+  .field label{
+    display:block;
+    font-weight:700;
+    font-size:0.92rem;
+    margin-bottom:7px;
+  }
+  .field .req{ color:var(--guava-dark); }
+
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    font-family:var(--font-body);
+    font-size:1rem;
+    padding:12px 14px;
+    border-radius:var(--radius-sm);
+    border:1.5px solid var(--line);
+    background:var(--cream-2);
+    color:var(--cocoa);
+  }
+  .field textarea{ min-height:120px; resize:vertical; }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    outline:none;
+    border-color:var(--palm);
+    box-shadow:0 0 0 3px rgba(63,107,78,0.18);
+  }
+
+  .field.has-error input,
+  .field.has-error select,
+  .field.has-error textarea{
+    border-color:var(--guava-dark);
+  }
+  .error-msg{
+    display:none;
+    margin-top:6px;
+    font-size:0.85rem;
+    color:var(--guava-dark);
+    font-weight:600;
+  }
+  .field.has-error .error-msg{ display:block; }
+
+  .honeypot-field{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+
+  .form-submit{
+    width:100%;
+    margin-top:6px;
+  }
+  .form-status{
+    margin-top:18px;
+    font-size:0.92rem;
+    text-align:center;
+  }
+  .form-status[data-state="error"]{ color:var(--guava-dark); font-weight:700; }
+
+  .success-panel{
+    display:none;
+    text-align:center;
+    padding:30px 10px 6px;
+  }
+  .success-panel.is-visible{ display:block; }
+  .success-panel .check{
+    width:56px; height:56px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--palm);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .success-panel h3{ font-size:1.35rem; margin-bottom:10px; }
+  .success-panel p{ color:var(--cocoa-soft); max-width:40ch; margin:0 auto; }
+  .order-form.is-hidden{ display:none; }
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    background:var(--cocoa);
+    color:var(--cream);
+    padding:56px 0 30px;
+  }
+  .footer-top{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:36px;
+    padding-bottom:34px;
+    border-bottom:1px solid rgba(255,246,232,0.14);
+  }
+  .footer-brand .brand-mark{ color:var(--cream); font-size:1.5rem; }
+  .footer-brand p{
+    margin-top:10px;
+    color:rgba(255,246,232,0.7);
+    max-width:36ch;
+    font-size:0.95rem;
+  }
+  .footer-col h4{
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    letter-spacing:0.02em;
+    color:rgba(255,246,232,0.55);
+    margin:0 0 12px;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+  .footer-col a{
+    text-decoration:none;
+    color:var(--cream);
+    font-size:0.95rem;
+  }
+  .footer-col a:hover{ color:var(--gold); }
+  .footer-bottom{
+    padding-top:22px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:space-between;
+    color:rgba(255,246,232,0.55);
+    font-size:0.85rem;
+  }
+
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:auto;
+    background:var(--cocoa);
+    color:var(--cream);
+    padding:12px 18px;
+    border-radius:8px;
+    z-index:100;
+  }
+  .skip-link:focus{ left:20px; top:20px; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a href="#top" class="brand">
+      <span class="brand-mark">Doce Dough</span>
+      <span class="brand-sub">Broward County Bakery</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#fulfillment">Pickup &amp; Delivery</a></li>
+      <li><a href="#contact">Order / Contact</a></li>
+      <li><a href="#contact" class="btn btn-primary nav-cta">Start an Order</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Party platters, baked fresh, so hosting feels effortless.</h1>
+        <p class="hero-sub">Doce Dough hand-makes chocolate chip cookies, banana muffins, and traditional Brazilian brigadeiros for birthdays, showers, office parties, and holiday tables — ready for pickup or delivered anywhere in Broward County.</p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">View Platters</a>
+          <a href="#contact" class="link-inline">Get a quote for your event →</a>
+        </div>
+        <p class="hero-service"><strong>Serving all of Broward County</strong> — Fort Lauderdale, Pompano Beach, Coral Springs, Hollywood, Plantation, Weston, and everywhere between.</p>
+      </div>
+
+      <div class="hero-art">
+        <div class="plate">
+          <img
+            src="images/mini_muffins.jpg"
+            alt="Chocolate chip mini muffins overflowing a bowl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section-alt" id="about">
+    <div class="wrap">
+      <div>
+        <h2>It started with friends asking for more.</h2>
+        <div class="about-copy" style="margin-top:18px;">
+          <p>Doce Dough started the way most good bakeries do — with a home oven, a full sheet pan, and friends circling back for seconds. We built our menu around the treats we grew up on: American-style cookies and muffins on one side, and traditional Brazilian brigadeiros on the other.</p>
+          <p>Every platter is made in small batches in Broward County, the same week as your event. No warehouses, no shortcuts — just recipes we'd serve at our own family's table, packed up and ready for yours.</p>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat">
+          <b>3 core recipes</b>
+          <span>Perfected in-house rather than a sprawling menu, so every batch is consistent.</span>
+        </div>
+        <div class="about-stat">
+          <b>Made to order</b>
+          <span>Platters are baked for your event date — nothing sits in a case waiting.</span>
+        </div>
+        <div class="about-stat">
+          <b>Pickup or delivery</b>
+          <span>Serving households and offices across all of Broward County.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Platters built for the whole party.</h2>
+        <p>Three recipes, perfected — mix and match to build a dessert table that covers every guest. Platters scale from small family gatherings to full office events.</p>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="platter-card" style="--accent:var(--gold); --accent-dark:#8A5A1F;">
+          <svg class="platter-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="27" fill="#E7B45E"/>
+            <circle cx="32" cy="32" r="27" fill="none" stroke="#C68F3E" stroke-width="2"/>
+            <circle cx="22" cy="24" r="3.4" fill="var(--cocoa)"/>
+            <circle cx="41" cy="26" r="3" fill="var(--cocoa)"/>
+            <circle cx="26" cy="38" r="3" fill="var(--cocoa)"/>
+            <circle cx="42" cy="40" r="2.6" fill="var(--cocoa)"/>
+            <circle cx="33" cy="30" r="2.6" fill="var(--cocoa)"/>
+          </svg>
+          <span class="platter-tag">Crowd favorite</span>
+          <h3>Chocolate Chip Cookies</h3>
+          <p>Classic, golden-brown cookies with crisp edges and soft, chewy centers, loaded generously with chocolate chips. Baked fresh for your event, they're the platter that empties first at every party.</p>
+          <div class="platter-meta"><strong>Great for:</strong> birthdays, office breakrooms, holiday tables</div>
+        </article>
+
+        <article class="platter-card" style="--accent:var(--palm); --accent-dark:#2C4E38;">
+          <svg class="platter-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M14 34 L48 34 L45 56 Q31 61 17 56 Z" fill="#C68C55"/>
+            <path d="M11 34 Q31 12 51 34 Q31 24 11 34 Z" fill="#8A5A34"/>
+            <circle cx="24" cy="24" r="2.6" fill="var(--cocoa)"/>
+            <circle cx="34" cy="19" r="2.6" fill="var(--cocoa)"/>
+            <circle cx="42" cy="26" r="2.6" fill="var(--cocoa)"/>
+            <circle cx="27" cy="34" r="2.4" fill="var(--cocoa)"/>
+            <circle cx="37" cy="37" r="2.4" fill="var(--cocoa)"/>
+          </svg>
+          <span class="platter-tag">Brunch & dessert</span>
+          <h3>Chocolate Chip Banana Muffins</h3>
+          <p>Moist, flavorful muffins made with ripe bananas and studded with chocolate chips in every bite. Enjoyable at home on a brunch spread or stacked alongside a dessert table.</p>
+          <div class="platter-meta"><strong>Great for:</strong> brunches, baby showers, morning meetings</div>
+        </article>
+
+        <article class="platter-card" style="--accent:var(--guava); --accent-dark:var(--guava-dark);">
+          <svg class="platter-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="24" fill="var(--guava)"/>
+            <circle cx="24" cy="24" r="2.8" fill="var(--gold)"/>
+            <circle cx="38" cy="21" r="2.8" fill="var(--palm)"/>
+            <circle cx="44" cy="34" r="2.8" fill="var(--cream)"/>
+            <circle cx="36" cy="43" r="2.8" fill="var(--gold)"/>
+            <circle cx="22" cy="40" r="2.8" fill="var(--palm)"/>
+            <circle cx="32" cy="32" r="2.8" fill="var(--cream)"/>
+          </svg>
+          <span class="platter-tag">Brazilian tradition</span>
+          <h3>Traditional Chocolate Brigadeiros</h3>
+          <p>Rich, authentic Brazilian chocolate truffles, slow-stirred until dense and fudgy, hand-rolled and finished in chocolate sprinkles. A staple of Brazilian celebrations, made the traditional way.</p>
+          <div class="platter-meta"><strong>Great for:</strong> milestone birthdays, quinceañeras, holiday gifting</div>
+        </article>
+
+      </div>
+
+      <p class="menu-note">Platters are sized to your guest count and event — <a href="#contact" class="link-inline">tell us the headcount and we'll quote it</a>.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS / FULFILLMENT -->
+  <section class="fulfillment section-alt" id="fulfillment">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Simple, from order to serving table.</h2>
+        <p>Three steps stand between you and a finished dessert table — no chasing down a bakery counter required.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <h3>Tell us about your event</h3>
+          <p>Share your date, guest count, and which platters you're after using the form below.</p>
+        </div>
+        <div class="step">
+          <h3>Choose pickup or delivery</h3>
+          <p>We'll confirm your order and whether you'd like to pick up locally or have it delivered.</p>
+        </div>
+        <div class="step">
+          <h3>Platters arrive fresh</h3>
+          <p>Everything is baked fresh for your event, ready to set out and serve.</p>
+        </div>
+      </div>
+
+      <div class="fulfillment-options">
+        <div class="fulfillment-card">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3l7 4v10l-7 4-7-4V7z" stroke="var(--palm)" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M12 3v18M5 7l7 4 7-4" stroke="var(--palm)" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <h3>Local pickup</h3>
+            <p>Swing by to collect your platters at an agreed time — convenient if you're already out running party errands.</p>
+          </div>
+        </div>
+        <div class="fulfillment-card">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 7h11v9H3z" stroke="var(--guava-dark)" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M14 10h4l3 3v3h-7z" stroke="var(--guava-dark)" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="7" cy="18" r="1.8" stroke="var(--guava-dark)" stroke-width="1.6"/>
+            <circle cx="17.5" cy="18" r="1.8" stroke="var(--guava-dark)" stroke-width="1.6"/>
+          </svg>
+          <div>
+            <h3>Delivery across Broward County</h3>
+            <p>We'll bring your platters straight to your home or office anywhere in Broward County, timed to your event.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-info">
+        <h2>Let's plan your platters.</h2>
+        <p>Send us your event details and we'll follow up to confirm your order, pricing, and pickup or delivery time.</p>
+
+        <dl class="contact-list">
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:docedough@gmail.com" class="link-inline">docedough@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Instagram</dt>
+            <dd><a href="https://instagram.com/docedough.fl" class="link-inline" target="_blank" rel="noopener">@docedough.fl</a></dd>
+          </div>
+          <div>
+            <dt>Service area</dt>
+            <dd>Pickup &amp; delivery throughout Broward County, FL</dd>
+          </div>
+          <div>
+            <dt>Response time</dt>
+            <dd>We typically confirm orders within 1–2 business days</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="form-card">
+        <form class="order-form" id="orderForm" novalidate>
+
+          <!-- Honeypot field: real users never see or fill this -->
+          <div class="honeypot-field" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-name">
+              <label for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+              <p class="error-msg">Please enter your name.</p>
+            </div>
+            <div class="field" id="field-email">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <p class="error-msg">Please enter a valid email address.</p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-phone">
+              <label for="phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              <p class="error-msg">Please enter a valid phone number.</p>
+            </div>
+            <div class="field" id="field-fulfillment">
+              <label for="fulfillment">Preferred Fulfillment <span class="req">*</span></label>
+              <select id="fulfillment" name="fulfillment" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Pickup">Pickup</option>
+              </select>
+              <p class="error-msg">Please choose delivery or pickup.</p>
+            </div>
+          </div>
+
+          <div class="field" id="field-eventDate">
+            <label for="eventDate">Event Date <span class="req">*</span></label>
+            <input type="date" id="eventDate" name="eventDate" required>
+            <p class="error-msg">Please select your event date.</p>
+          </div>
+
+          <div class="field" id="field-message">
+            <label for="message">Message / Special Requests</label>
+            <textarea id="message" name="message" placeholder="Guest count, platter picks, allergies, or anything else we should know."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send Order Inquiry</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="success-panel" id="successPanel" role="status" aria-live="polite">
+          <div class="check">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12.5l5 5L20 7" stroke="var(--cream)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Thanks for your inquiry!</h3>
+          <p>We've received your event details and will follow up shortly to confirm your platter order, pricing, and pickup or delivery time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-mark">Doce Dough</span>
+        <p>A Broward County home bakery making party and dessert platters for milestones, offices, and holidays.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#fulfillment">Pickup &amp; Delivery</a></li>
+          <li><a href="#contact">Order / Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:orders@docedough@gmail.com">docedough@gmail.com</a></li>
+          <li><a href="https://instagram.com/docedough.fl" target="_blank" rel="noopener">@docedough.fl</a></li>
+          <li>Broward County, FL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Doce Dough. All rights reserved.</span>
+      <span>Handmade in Broward County, Florida.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function(){
+    var isOpen = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Prevent picking an event date in the past
+  var eventDateInput = document.getElementById('eventDate');
+  var todayISO = new Date().toISOString().split('T')[0];
+  eventDateInput.setAttribute('min', todayISO);
+
+  // ---- Form validation & submission ----
+  var form = document.getElementById('orderForm');
+  var statusEl = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+  var successPanel = document.getElementById('successPanel');
+
+  var validators = {
+    name: function(v){ return v.trim().length > 0; },
+    email: function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); },
+    phone: function(v){ return v.replace(/\D/g,'').length >= 10; },
+    fulfillment: function(v){ return v === 'Delivery' || v === 'Pickup'; },
+    eventDate: function(v){ return v.trim().length > 0; }
+  };
+
+  function setFieldError(name, hasError){
+    var wrap = document.getElementById('field-' + name);
+    if(!wrap) return;
+    wrap.classList.toggle('has-error', hasError);
+  }
+
+  function validateField(name){
+    var el = form.elements[name];
+    var valid = validators[name] ? validators[name](el.value) : true;
+    setFieldError(name, !valid);
+    return valid;
+  }
+
+  ['name','email','phone','fulfillment','eventDate'].forEach(function(name){
+    var el = form.elements[name];
+    el.addEventListener('blur', function(){ validateField(name); });
+    el.addEventListener('input', function(){
+      if(document.getElementById('field-' + name).classList.contains('has-error')){
+        validateField(name);
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.textContent = '';
+    statusEl.removeAttribute('data-state');
+
+    var fields = ['name','email','phone','fulfillment','eventDate'];
+    var allValid = true;
+    fields.forEach(function(name){
+      if(!validateField(name)) allValid = false;
+    });
+
+    if(!allValid){
+      statusEl.textContent = 'Please fix the highlighted fields and try again.';
+      statusEl.setAttribute('data-state','error');
+      return;
+    }
+
+    var payload = {
+      name: form.elements['name'].value.trim(),
+      email: form.elements['email'].value.trim(),
+      phone: form.elements['phone'].value.trim(),
+      fulfillment: form.elements['fulfillment'].value,
+      eventDate: form.elements['eventDate'].value,
+      message: form.elements['message'].value.trim(),
+      company: form.elements['company'].value // honeypot
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    // fetch('/api/contact', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(payload)
+    // })
+    fetch('/submit-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){
+      return res.json().catch(function(){ return {}; }).then(function(data){
+        return { ok: res.ok && data.ok !== false, data: data };
+      });
+    })
+    .then(function(result){
+      if(result.ok){
+        form.classList.add('is-hidden');
+        successPanel.classList.add('is-visible');
+      } else {
+        statusEl.textContent = (result.data && result.data.error) ||
+          'Something went wrong sending your inquiry. Please try again, or email us directly.';
+        statusEl.setAttribute('data-state','error');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Order Inquiry';
+      }
+    })
+    .catch(function(){
+      statusEl.textContent = 'Something went wrong sending your inquiry. Please try again, or email us directly.';
+      statusEl.setAttribute('data-state','error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Order Inquiry';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -877,12 +877,12 @@
       </div>
 
       <div class="form-card">
-        <form class="order-form" id="orderForm" novalidate>
+        <form class="order-form" id="orderForm" action="https://formspree.io/f/xyezybvr" method="POST" novalidate>
 
-          <!-- Honeypot field: real users never see or fill this -->
+          <!-- Formspree Honeypot field: must be named _gotcha -->
           <div class="honeypot-field" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+            <label for="_gotcha">Company</label>
+            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
           </div>
 
           <div class="field-row">
@@ -930,7 +930,7 @@
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
 
-        <div class="success-panel" id="successPanel" role="status" aria-live="polite">
+        <div class="success-panel" id="successPanel" role="status" aria-live="polite" style="display: none;">
           <div class="check">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
               <path d="M4 12.5l5 5L20 7" stroke="var(--cream)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -939,7 +939,6 @@
           <h3>Thanks for your inquiry!</h3>
           <p>We've received your event details and will follow up shortly to confirm your platter order, pricing, and pickup or delivery time.</p>
         </div>
-      </div>
     </div>
   </section>
 
@@ -999,11 +998,9 @@
   var todayISO = new Date().toISOString().split('T')[0];
   eventDateInput.setAttribute('min', todayISO);
 
-  // ---- Form validation & submission ----
+  // ---- Form validation helpers (keeps your UI red states working) ----
   var form = document.getElementById('orderForm');
   var statusEl = document.getElementById('formStatus');
-  var submitBtn = document.getElementById('submitBtn');
-  var successPanel = document.getElementById('successPanel');
 
   var validators = {
     name: function(v){ return v.trim().length > 0; },
@@ -1036,8 +1033,8 @@
     });
   });
 
+  // Client-side guard before Formspree handles the submission
   form.addEventListener('submit', function(e){
-    e.preventDefault();
     statusEl.textContent = '';
     statusEl.removeAttribute('data-state');
 
@@ -1048,57 +1045,12 @@
     });
 
     if(!allValid){
+      e.preventDefault(); // Stop submission if validation fails
       statusEl.textContent = 'Please fix the highlighted fields and try again.';
       statusEl.setAttribute('data-state','error');
-      return;
     }
-
-    var payload = {
-      name: form.elements['name'].value.trim(),
-      email: form.elements['email'].value.trim(),
-      phone: form.elements['phone'].value.trim(),
-      fulfillment: form.elements['fulfillment'].value,
-      eventDate: form.elements['eventDate'].value,
-      message: form.elements['message'].value.trim(),
-      company: form.elements['company'].value // honeypot
-    };
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    // fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(payload)
-    // })
-    fetch('/submit-form', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(res){
-      return res.json().catch(function(){ return {}; }).then(function(data){
-        return { ok: res.ok && data.ok !== false, data: data };
-      });
-    })
-    .then(function(result){
-      if(result.ok){
-        form.classList.add('is-hidden');
-        successPanel.classList.add('is-visible');
-      } else {
-        statusEl.textContent = (result.data && result.data.error) ||
-          'Something went wrong sending your inquiry. Please try again, or email us directly.';
-        statusEl.setAttribute('data-state','error');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Order Inquiry';
-      }
-    })
-    .catch(function(){
-      statusEl.textContent = 'Something went wrong sending your inquiry. Please try again, or email us directly.';
-      statusEl.setAttribute('data-state','error');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Order Inquiry';
-    });
+    // If allValid is true, e.preventDefault() is NOT called, 
+    // and Formspree naturally takes over the submission!
   });
 </script>
 
